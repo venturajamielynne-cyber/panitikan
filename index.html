@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Panitikang Digital</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+/* SECTION */
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* CARD DESIGN (FLYER STYLE) */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0;
+}
+
+/* COLOR THEMES (based sa flyer mo) */
+.blue { border-top: 6px solid #3498db; }
+.purple { border-top: 6px solid #8e44ad; }
+.yellow { border-top: 6px solid #f1c40f; }
+.red { border-top: 6px solid #e74c3c; }
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>PANITIKANG DIGITAL</h1>
+    <p>Matuto. Maunawaan. Magpahayag sa makabagong panahon.</p>
+</div>
+
+<section>
+<h2 style="text-align:center;">📚 Panitikang Digital sa Makabagong Panahon</h2>
+
+<div class="grid">
+
+<!-- PARA SA LAHAT -->
+<div class="card blue" onclick="openModal('Panitikan sa Digital na Panahon', content1)">
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+<div class="card-content">
+<h3>📖 Para sa Lahat</h3>
+<p>Panitikan + Teknolohiya</p>
+</div>
+</div>
+
+<!-- GURO -->
+<div class="card yellow" onclick="openModal('Para sa mga Guro', content2)">
+<img src="https://images.unsplash.com/photo-1584697964190-7383c2a8f95b">
+<div class="card-content">
+<h3>🎓 Para sa Guro</h3>
+<p>Makabagong pagtuturo</p>
+</div>
+</div>
+
+<!-- ESTUDYANTE -->
+<div class="card purple" onclick="openModal('Para sa Estudyante', content3)">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+<div class="card-content">
+<h3>📱 Para sa Estudyante</h3>
+<p>Scroll Smart Learning</p>
+</div>
+</div>
+
+<!-- KOMUNIDAD -->
+<div class="card red" onclick="openModal('Para sa Komunidad', content4)">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="card-content">
+<h3>🌍 Para sa Komunidad</h3>
+<p>Edukasyon + Teknolohiya</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">✖</span>
+<h2 id="title"></h2>
+<p id="text"></p>
+</div>
+</div>
+
+<script>
+
+/* CONTENT (galing sa flyer + research mo) */
+
+const content1 = `
+Mas nagiging interesante ang panitikan sa pamamagitan ng digital platforms.
+✔ Mas malinaw ang pag-unawa
+✔ Mas engaging ang pagkatuto
+✔ Mas naaabot ang kabataan
+
+Ngunit may hamon:
+• Mahinang internet
+• Kakulangan sa gadget
+• Kailangan ng tamang gabay
+
+✔ Ang social media ay hindi lang libangan—ito ay kasangkapan sa pagkatuto.
+`;
+
+const content2 = `
+Ang guro ay may mahalagang papel sa paggamit ng teknolohiya.
+
+✔ TikTok – para sa maikling paliwanag
+✔ YouTube – para sa mas malalim na talakayan
+✔ Facebook – para sa diskusyon at kolaborasyon
+
+Batay sa pananaliksik:
+✔ Tumataas ang interes
+✔ Mas nagiging epektibo ang pagtuturo
+✔ Mas aktibo ang estudyante
+`;
+
+const content3 = `
+Hindi lang pang-entertainment ang social media!
+
+Pwede itong gamitin sa:
+✔ Pag-aaral ng panitikan
+✔ Pag-unawa ng akda
+✔ Pagpapahayag ng sarili
+✔ Pagiging malikhain
+
+✔ Ikaw ang bagong henerasyon—gamitin ang teknolohiya sa tama at makabuluhang paraan.
+`;
+
+const content4 = `
+Edukasyon + Teknolohiya = Mas maliwanag na kinabukasan
+
+✔ Nakakatulong sa pagkatuto
+✔ Nagpapalawak ng kaalaman
+✔ Nag-uugnay sa komunidad
+
+Ngunit kailangan:
+✔ Tamang paggamit
+✔ Suporta ng paaralan
+✔ Gabay ng guro
+
+✔ Ang teknolohiya ay katuwang, hindi kapalit ng guro.
+`;
+
+/* MODAL FUNCTIONS */
+
+function openModal(title, content){
+document.getElementById('modal').style.display = "flex";
+document.getElementById('title').innerText = title;
+document.getElementById('text').innerText = content;
+}
+
+function closeModal(){
+document.getElementById('modal').style.display = "none";
+}
+
+window.onclick = function(e){
+if(e.target == document.getElementById('modal')){
+closeModal();
+}
+}
+
+</script>
+
+</body>
+</html>
